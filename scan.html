@@ -11,6 +11,8 @@
 <body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js" integrity="sha512-k/KAe4Yff9EUdYI5/IAHlwUswqeipP+Cp5qnrsUjTPCgl51La2/JhyyjNciztD7mWNKLSXci48m7cctATKfLlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
 <style>
 
 #reader {
@@ -29,11 +31,87 @@ font-size: 1.5rem;
 width:100%;
    
    }
+
+  
+    #alarma, #alarma2{
+
+display: none;
+margin:0;
+position: absolute;
+width: 100%;
+height: 100%;
+background: black;
+color:white;
+text-align: center;
+font-size: 60px;
+
+    }
+    #titulo{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    body {
+        margin:0;
+        font-family: Arial;
+        font-size:30px;
+}
+
+
+    #user{
+text-align: center;
+width:100%
+    }
+#correo_sec{
+display:block;
+
+padding:20px;
+margin:0;
+background:grey;
+color:white;
+width:100%;
+
+text-align:center;
+}
+
+#data-reg{
+display:block;
+padding:20px;
+width:100%;
+
+background: lightgreen;
+
+}
+
+#data-even{
+display:block;
+text-align:center;
+padding:20px;
+width:100%;
+
+background: lightblue;
+
+
+}
 </style>
+
 
 <div id="reader"></div>
 <div id="result"></div>
+<div id="alarma"><p>ESTE USUARIO <br> NO EXISTE</p></div>
+<div id="alarma2"><p>ESTE CÓDIGO QR <br> NO EXISTE</p></div>
+<div id="titulo"><h1>Autentificación de Entradas QR</h1></div>
+<div id="correo_sec">
+<p id="mail"></p>
+</div>
+<div id="data-reg" >
+    <p id="user" ></p>
+</div>
 
+
+<div id="data-even">
+    <p id="registro"></p>
+</div>
 <script>
 const scanner = new Html5QrcodeScanner('reader', {
 qrbox: {

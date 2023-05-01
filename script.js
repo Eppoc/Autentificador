@@ -1,3 +1,23 @@
+       // Import the functions you need from the SDKs you need
+       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+       import { getFirestore, collection, doc, getDoc, setDoc, updateDoc} from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js";
+       // TODO: Add SDKs for Firebase products that you want to use
+       // https://firebase.google.com/docs/web/setup#available-libraries
+     
+       // Your web app's Firebase configuration
+       const firebaseConfig = {
+         apiKey: "AIzaSyBsFoa3Ts5hE-YKZYNLnyIvi9LNiHh371I",
+         authDomain: "qr-sup.firebaseapp.com",
+         databaseURL: "https://qr-sup-default-rtdb.firebaseio.com",
+         projectId: "qr-sup",
+         storageBucket: "qr-sup.appspot.com",
+         messagingSenderId: "408589030118",
+         appId: "1:408589030118:web:f56d336affb4787214a127"
+       };
+     
+       // Initialize Firebase
+       const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 function verificar() {
     var urlParams = new URLSearchParams(window.location.search);
     var id = urlParams.get('id');
