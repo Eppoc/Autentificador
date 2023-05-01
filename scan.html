@@ -95,12 +95,15 @@ background: lightblue;
 }
 </style>
 
-
+<div id="scan">
 <div id="reader"></div>
 <div id="result"></div>
+</div>
+
 <div id="alarma"><p>ESTE USUARIO <br> NO EXISTE</p></div>
 <div id="alarma2"><p>ESTE CÓDIGO QR <br> NO EXISTE</p></div>
 
+<div id="datas">
 <div id="correo_sec">
 <p id="mail"></p>
 </div>
@@ -111,6 +114,7 @@ background: lightblue;
 
 <div id="data-even">
     <p id="registro"></p>
+</div>
 </div>
 <script type="module">
 const scanner = new Html5QrcodeScanner('reader', {
