@@ -23,7 +23,8 @@
 
 #reader {
    
-
+   position:relative;
+   display: block;
    width: 100%;
   
   margin-left:15%;
@@ -143,9 +144,9 @@ const resultado = partes[partes.length - 1];
 console.log(resultado);
 //scanner.clear();
 //document.getElementById('reader').remove();
-setTimeout(() => {
+
     verificar(resultado);
-  }, 5000);
+
 }
 function error(err) {
 console.error(err);
