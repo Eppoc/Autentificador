@@ -117,6 +117,10 @@ z-index: 999999;
 border-radius: 10px;
 text-align: center;
 }
+#anfitrion{
+display: none;
+
+}
 </style>
 
 <div id="seguir">
@@ -141,6 +145,7 @@ text-align: center;
 
 
 <div id="data-even">
+   <p id="anfitrion"></p>
     <p id="registro"></p>
 </div>
 </div>
@@ -222,6 +227,9 @@ console.log(resultado);
          
           document.getElementById("user").innerHTML = INV_VALIDO ;
           document.getElementById("mail").innerHTML = invitado;
+          
+          document.getElementById("anfitrion").innerHTML ="Anfitrión: " invitador;
+          document.getElementById("anfitrion").style.display = "block";
        
       }else{
          
@@ -275,6 +283,8 @@ console.log(resultado);
           //document.getElementById("user").innerHTML = "EL USUARIO ESTÁ REPETIDO";
           document.getElementById("user").innerHTML = INV_REP_VALIDO;
           document.getElementById("registro").innerHTML = "<strong>YA</strong> REGISTRADO EN EL EVENTO";
+          document.getElementById("anfitrion").innerHTML ="Anfitrión: " invitador;
+          document.getElementById("anfitrion").style.display = "block";
           document.getElementById("data-even").style.background = "red";
           document.getElementById("data-even").style.color = "white";
           } else{
