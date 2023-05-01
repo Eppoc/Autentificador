@@ -60,7 +60,7 @@ font-size: 60px;
     body {
         margin:0;
         font-family: Arial;
-        font-size:20px;
+        font-size:18px;
         background: black;
 }
 
@@ -77,8 +77,8 @@ margin:0;
 background:grey;
 color:white;
 width:100%;
-padding-top: 5px;
-padding-bottom: 5px;
+padding-top: 2px;
+padding-bottom: 2px;
 text-align:center;
 }
 
@@ -86,8 +86,8 @@ text-align:center;
 display:block;
 margin:0;
 width:100%;
-padding-top: 5px;
-padding-bottom: 5px;
+padding-top: 2px;
+padding-bottom: 2px;
 background: lightgreen;
 
 }
@@ -97,8 +97,8 @@ display:block;
 text-align:center;
 margin:0;
 width:100%;
-padding-top: 5px;
-padding-bottom: 5px;
+padding-top: 2px;
+padding-bottom: 2px;
 background: lightblue;
 
 
@@ -256,18 +256,18 @@ console.log(resultado);
           console.log("El usuario ya se <br> registro en el Evento", doc.data().registrado);
           //document.getElementById("user").innerHTML = "EL USUARIO ESTÁ REPETIDO";
           document.getElementById("user").innerHTML = INV_REP_VALIDO;
-          document.getElementById("registro").innerHTML = "EL USUARIO YA SE <br> REGISTRÓ EN EL EVENTO";
+          document.getElementById("registro").innerHTML = "<strong>YA</strong> REGISTRADO EN EL EVENTO";
           document.getElementById("data-even").style.background = "red";
           document.getElementById("data-even").style.color = "white";
           } else{
               document.getElementById("user").innerHTML = REP_VALIDO;   
-              document.getElementById("registro").innerHTML = "EL USUARIO YA SE <br> REGISTRÓ EN EL EVENTO";
+              document.getElementById("registro").innerHTML = "<strong>YA</strong> REGISTRADO EN EL EVENTO";
               document.getElementById("data-even").style.background = "red";
           document.getElementById("data-even").style.color = "white";
           } 
       } else {
           console.log("El usuario no se ha registrado");
-          document.getElementById("registro").innerHTML = "REGISTRADO EN EVENTO";
+          document.getElementById("registro").innerHTML = "RECIÉN REGISTRADO EN EVENTO";
           
         }
       } else {
