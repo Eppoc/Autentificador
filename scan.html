@@ -138,7 +138,9 @@ const resultado = partes[partes.length - 1];
 console.log(resultado);
 //scanner.clear();
 //document.getElementById('reader').remove();
-verificar(resultado);
+setTimeout(() => {
+    verificar(resultado);
+  }, 1000);
 }
 function error(err) {
 console.error(err);
