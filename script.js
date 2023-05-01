@@ -18,20 +18,22 @@
        // Initialize Firebase
        const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-function verificar() {
-    var urlParams = new URLSearchParams(window.location.search);
-    var id = urlParams.get('id');
-    var inv = urlParams.get('inv');
-    console.log(inv);
-    if (id === null || inv === null) {
-      document.getElementById("alarma2").style.display = "block";
-  }else{
+function verificar(result) {
+    //var urlParams = new URLSearchParams(window.location.search);
+    const cadena = result;
+const partes = cadena.split("/");
+const resultado = partes[partes.length - 1];
+console.log(resultado);
+    var id = resultado;
+    //var inv = urlParams.get('inv');
+    console.log(id);
+    
     const datosRef = doc(db, "datos", id);
   
     getDoc(datosRef).then((doc) => {
       if (doc.exists()) {
         //console.log("Datos del documento:", doc.data());
-  
+        let Cqr = doc.data().qr;
         let invitado = doc.data().invitado;
           let invitador = doc.data().mail;
        
@@ -39,11 +41,11 @@ function verificar() {
           const INV_REP_VALIDO = "INVITADO REPETIDO";
           const VALIDO ="ES VÁLIDO";
           const REP_VALIDO = "ESTÁ REPETIDO";
-  
+          
         
         
   
-        if (inv =="true"){
+        if (doc.data().invitado){
          
           document.getElementById("user").innerHTML = "El Usuario <br>"+"<strong>" + invitado + "</strong>"+"<br><br>" + INV_VALIDO + "<br><br>Invitado por <br>" + "<strong>"+invitador+"</strong>" ;
           document.getElementById("mail").innerHTML = invitado;
@@ -95,7 +97,7 @@ function verificar() {
           }
   
         if (doc.data().registrado) {
-          if (inv=="true"){
+          if (doc.data().invitado){
           console.log("El usuario ya se <br> registro en el Evento", doc.data().registrado);
           //document.getElementById("user").innerHTML = "EL USUARIO ESTÁ REPETIDO";
           document.getElementById("user").innerHTML = "El Usuario <br>"+"<strong>" + invitado + "</strong>"+"<br><br>" + INV_REP_VALIDO + "<br><br>Invitado por <br>" + "<strong>"+invitador+"</strong>" ;
@@ -123,4 +125,4 @@ function verificar() {
      
     });
   };
-  }
+  
