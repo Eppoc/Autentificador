@@ -128,6 +128,10 @@ document.getElementById('result').innerHTML = `
 <p><a href="${result}">${result}</a></p>
 `;
 console.log(result);
+const cadena = result;
+const partes = cadena.split("/");
+const resultado = partes[partes.length - 1];
+console.log(resultado);
 //scanner.clear();
 //document.getElementById('reader').remove();
 }
@@ -156,9 +160,7 @@ console.error(err);
 const db = getFirestore(app);
 function verificar(result) {
     //var urlParams = new URLSearchParams(window.location.search);
-    const cadena = result;
-const partes = cadena.split("/");
-const resultado = partes[partes.length - 1];
+    
 console.log(resultado);
     var id = resultado;
     //var inv = urlParams.get('inv');
