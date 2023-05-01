@@ -132,11 +132,11 @@ fps: 20,
 });
 scanner.render(success, error);
 function success(result) {
-  // verificar(result);
-document.getElementById('result').innerHTML = `
-<h2>ÉXITO!</h2>
-<p><a href="${result}">${result}</a></p>
-`;
+   verificar(result);
+//document.getElementById('result').innerHTML = `
+//<h2>ÉXITO!</h2>
+//<p><a href="${result}">${result}</a></p>
+//`;
 console.log(result);
 const cadena = result;
 const partes = cadena.split("/");
@@ -198,12 +198,12 @@ console.log(resultado);
   
         if (doc.data().invitado){
          
-          document.getElementById("user").innerHTML = "El Usuario <br>"+"<strong>" + invitado + "</strong>"+"<br><br>" + INV_VALIDO + "<br><br>Invitado por <br>" + "<strong>"+invitador+"</strong>" ;
+          document.getElementById("user").innerHTML = INV_VALIDO ;
           document.getElementById("mail").innerHTML = invitado;
        
       }else{
          
-          document.getElementById("user").innerHTML = "El Usuario " + "<strong>"+ invitador +"</strong>"+ "<br><br>" + VALIDO;
+          document.getElementById("user").innerHTML = VALIDO;
           document.getElementById("mail").innerHTML = invitador;
       
       }
@@ -251,12 +251,12 @@ console.log(resultado);
           if (doc.data().invitado){
           console.log("El usuario ya se <br> registro en el Evento", doc.data().registrado);
           //document.getElementById("user").innerHTML = "EL USUARIO ESTÁ REPETIDO";
-          document.getElementById("user").innerHTML = "El Usuario <br>"+"<strong>" + invitado + "</strong>"+"<br><br>" + INV_REP_VALIDO + "<br><br>Invitado por <br>" + "<strong>"+invitador+"</strong>" ;
+          document.getElementById("user").innerHTML = INV_REP_VALIDO;
           document.getElementById("registro").innerHTML = "EL USUARIO YA SE <br> REGISTRÓ EN EL EVENTO";
           document.getElementById("data-even").style.background = "red";
           document.getElementById("data-even").style.color = "white";
           } else{
-              document.getElementById("user").innerHTML = "El Usuario " + "<strong>"+ invitador +"</strong>"+ "<br><br>" + REP_VALIDO;   
+              document.getElementById("user").innerHTML = REP_VALIDO;   
               document.getElementById("registro").innerHTML = "EL USUARIO YA SE <br> REGISTRÓ EN EL EVENTO";
               document.getElementById("data-even").style.background = "red";
           document.getElementById("data-even").style.color = "white";
