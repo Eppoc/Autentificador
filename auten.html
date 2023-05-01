@@ -16,7 +16,7 @@
 	<script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
-        import { getFirestore, collection, doc, getDoc, setDoc  } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js";
+        import { getFirestore, collection, doc, getDoc, setDoc, updateDoc} from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
       
@@ -82,10 +82,36 @@ window.onload = function() {
           console.log("Error al registrar el valor:", error);
           
         });
+         let inicio=1;
+        let valor_actual = doc.data().contador_reg;
+          console.log(valor_actual);
+          let suma = valor_actual + 1;
+          console.log("suma"+suma);
+       
+        if (doc.data().contador_reg) {
+          
+          setDoc(datosRef, { contador_reg: suma }, { merge: true })
+        .then(() => {
+          console.log("Y Contando...123" );
+      
+        })
+        .catch((error) => {
+          console.log("Error al registrar el valor:", error);
+          
+        });
+        }else{
+          console.log("cero");
+          setDoc(datosRef, { contador_reg: inicio }, { merge: true })
+        .then(() => {
+          console.log("Y Contando..." );
+      
+        })
+        .catch((error) => {
+          console.log("Error al registrar el valor:", error);
+          
+        });
+        }
 
-        
-      
-      
       if (doc.data().registrado) {
         if (inv=="true"){
         console.log("El usuario ya se <br> registro en el Evento", doc.data().registrado);
