@@ -18,9 +18,9 @@
        // Initialize Firebase
        const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-function verificar(result) {
+function verificar(resulta) {
     //var urlParams = new URLSearchParams(window.location.search);
-    const cadena = result;
+    const cadena = resulta;
 const partes = cadena.split("/");
 const resultado = partes[partes.length - 1];
 console.log(resultado);
