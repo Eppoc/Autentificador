@@ -298,15 +298,18 @@ console.log(resultado);
           document.getElementById("anfitrion").style.display = "block";
           document.getElementById("data-even").style.background = "red";
           document.getElementById("data-even").style.color = "white";
+          document.getElementById("alarma").style.display = "none";
           } else{
               document.getElementById("user").innerHTML = REP_VALIDO; 
               document.getElementById("anfitrion").style.display = "none";  
               document.getElementById("registro").innerHTML = "<strong>YA</strong> REGISTRADO EN EL EVENTO";
               document.getElementById("data-even").style.background = "red";
           document.getElementById("data-even").style.color = "white";
+          document.getElementById("alarma").style.display = "none";
           } 
       } else {
           console.log("El usuario no se ha registrado");
+          document.getElementById("alarma").style.display = "none";
           document.getElementById("data-even").style.background = "lightblue";
           document.getElementById("registro").innerHTML = "RECIÉN REGISTRADO EN EVENTO";
           
