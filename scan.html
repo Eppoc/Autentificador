@@ -187,7 +187,14 @@ document.getElementById('seguir').addEventListener('click', startScan);
 
 function startScan() {
    scanner.resume();
+   
+   document.getElementById("correo_sec").style.background = "lightgray";
+  
+   document.getElementById("data-reg").style.background = "lightgray";
+   document.getElementById("data-even").style.background = "lightgray";
+   
    document.getElementById("seguir").style.display = "none";
+   document.getElementById("seguir").style.background = "lightgray";
   // Aquí va el código para iniciar el escaneo
 }
        // Import the functions you need from the SDKs you need
@@ -242,12 +249,20 @@ console.log(resultado);
           
           document.getElementById("anfitrion").innerHTML ="Anfitrión: " + invitador;
           document.getElementById("anfitrion").style.display = "block";
+
+          document.getElementById("correo_sec").style.background = "grey";
+   document.getElementById("data-reg").style.background = "lightgreen";
+   
+   document.getElementById("data-even").style.background = "lightblue";
        
       }else{
          document.getElementById("anfitrion").style.display = "none";
           document.getElementById("user").innerHTML = VALIDO;
           document.getElementById("mail").innerHTML = invitador;
-      
+          document.getElementById("correo_sec").style.background = "grey";
+   document.getElementById("data-reg").style.background = "lightgreen";
+   
+   document.getElementById("data-even").style.background = "lightblue";
       }
         //yea
         setDoc(datosRef, { registrado: true }, { merge: true })
