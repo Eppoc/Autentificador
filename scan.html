@@ -243,7 +243,7 @@ console.log(resultado);
           document.getElementById("anfitrion").style.display = "block";
        
       }else{
-         
+         document.getElementById("anfitrion").style.display = "none";
           document.getElementById("user").innerHTML = VALIDO;
           document.getElementById("mail").innerHTML = invitador;
       
@@ -299,7 +299,8 @@ console.log(resultado);
           document.getElementById("data-even").style.background = "red";
           document.getElementById("data-even").style.color = "white";
           } else{
-              document.getElementById("user").innerHTML = REP_VALIDO;   
+              document.getElementById("user").innerHTML = REP_VALIDO; 
+              document.getElementById("anfitrion").style.display = "none";  
               document.getElementById("registro").innerHTML = "<strong>YA</strong> REGISTRADO EN EL EVENTO";
               document.getElementById("data-even").style.background = "red";
           document.getElementById("data-even").style.color = "white";
