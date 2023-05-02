@@ -108,11 +108,11 @@ background: lightblue;
 position: absolute;
 display: none;
 width: 40%;
-height: 20%;
+color:white;
 margin-left: 30%;
 margin-top: 15%;
 background: green;
-opacity: 0.8;
+
 z-index: 999999;
 border-radius: 10px;
 text-align: center;
@@ -310,6 +310,7 @@ console.log(resultado);
       } else {
           console.log("El usuario no se ha registrado");
           document.getElementById("alarma").style.display = "none";
+          document.getElementById("data-even").style.color = "black";
           document.getElementById("data-even").style.background = "lightblue";
           document.getElementById("registro").innerHTML = "RECIÉN REGISTRADO EN EVENTO";
           
