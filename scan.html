@@ -291,6 +291,7 @@ console.log(resultado);
   
         if (doc.data().registrado) {
           if (doc.data().invitado){
+            document.getElementById("seguir").style.background = "red";
           console.log("El usuario ya se <br> registro en el Evento", doc.data().registrado);
           //document.getElementById("user").innerHTML = "EL USUARIO ESTÁ REPETIDO";
           document.getElementById("user").innerHTML = INV_REP_VALIDO;
@@ -301,19 +302,21 @@ console.log(resultado);
           document.getElementById("data-even").style.color = "white";
           document.getElementById("alarma").style.display = "none";
           
-          document.getElementById("seguir").style.background = "red";
+          
           } else{
+            document.getElementById("seguir").style.background = "red";
               document.getElementById("user").innerHTML = REP_VALIDO; 
               document.getElementById("anfitrion").style.display = "none";  
               document.getElementById("registro").innerHTML = "<strong>YA</strong> REGISTRADO EN EL EVENTO";
               document.getElementById("data-even").style.background = "red";
-              document.getElementById("seguir").style.background = "red";
+              
           document.getElementById("data-even").style.color = "white";
           document.getElementById("alarma").style.display = "none";
           } 
       } else {
+         document.getElementById("seguir").style.background = "green";
           console.log("El usuario no se ha registrado");
-          document.getElementById("seguir").style.background = "green";
+         
           document.getElementById("alarma").style.display = "none";
           document.getElementById("data-even").style.color = "black";
           document.getElementById("data-even").style.background = "lightblue";
