@@ -187,7 +187,10 @@ document.getElementById('seguir').addEventListener('click', startScan);
 
 function startScan() {
    scanner.resume();
-   
+   document.getElementById("anfitrion").innerHTML ="ESCANEANDO...";
+   document.getElementById("user").innerHTML = "ESCANEANDO..." ;
+          document.getElementById("mail").innerHTML = "ESCANEANDO...";
+          document.getElementById("registro").innerHTML = "ESCANEANDO...";
    document.getElementById("correo_sec").style.background = "lightgray";
   
    document.getElementById("data-reg").style.background = "lightgray";
