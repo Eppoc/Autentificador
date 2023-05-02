@@ -1,0 +1,174 @@
+<html>
+   <head>
+	<script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+        import { getFirestore, collection, doc, getDoc, setDoc, getDocs, onSnapshot } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBsFoa3Ts5hE-YKZYNLnyIvi9LNiHh371I",
+          authDomain: "qr-sup.firebaseapp.com",
+          databaseURL: "https://qr-sup-default-rtdb.firebaseio.com",
+          projectId: "qr-sup",
+          storageBucket: "qr-sup.appspot.com",
+          messagingSenderId: "408589030118",
+          appId: "1:408589030118:web:f56d336affb4787214a127"
+        };
+      //  const app = initializeApp(firebaseConfig);
+//const db = getFirestore(app);
+//const datosRef = doc(db, "datos", "gBRJZnvu");
+
+//getDoc(datosRef).then((doc) => {
+  //  if (doc.exists()) {
+    //  console.log("Datos del documento:", doc.data());
+    //}
+//});
+
+const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const datosRef = collection(db,"datos");
+    const docsSnap = await getDocs(datosRef);
+
+  // docsSnap.forEach(doc => {
+    //console.log(doc.data());
+//})
+
+const table = document.getElementById("table");
+      const tbody = table.getElementsByTagName("tbody")[0];
+
+      // Función para agregar una fila a la tabla
+      function agregarFila(doc) {
+        // Crear la fila y las celdas
+        const row = document.createElement("tr");
+  const nameCell = document.createElement("td");
+  const name_Cell = document.createElement("td");
+  const mailCell = document.createElement("td");
+  const invCell = document.createElement("td");
+  const qrCell = document.createElement("td");
+  const cqrCell = document.createElement("td");
+  const aproCell = document.createElement("td");
+  const fechaCell = document.createElement("td");
+  const imgElement = document.createElement("img");
+  if (doc.data()['qr-img']){
+imgElement.src = doc.data()['qr-img'];
+imgElement.width = 80; 
+imgElement.height = 80; 
+cqrCell.appendChild(imgElement);
+  }else{
+    cqrCell.textContent = "Sin imagen Test"
+  }
+  
+  if(doc.data().contador_reg && doc.data().contador_reg == 1 ){
+    aproCell.textContent = "REGISTRADO";
+    aproCell.style.backgroundColor = "green";
+   
+  }else if (doc.data().contador_reg > 1) {
+    aproCell.textContent = "REPETIDO "+ "( "+doc.data().contador_reg+" )";
+    aproCell.style.backgroundColor = "red";
+  }else{
+   
+    aproCell.textContent = "NO REGISTRADO";
+    aproCell.style.backgroundColor = "lightblue";
+  }
+  
+  
+  
+  const regCell = document.createElement("td");
+
+// Establecer el contenido de las celdas
+  nameCell.textContent = doc.id;
+  name_Cell.textContent = doc.data().name;
+  mailCell.textContent = doc.data().mail;
+  qrCell.textContent = doc.data().qr;
+  fechaCell.textContent = doc.data().time;
+  
+
+
+  if (doc.data().registrado){
+  regCell.textContent = "YA Registrado en Evento";
+  //cqrCell.textContent = "<img src='"+doc.data()['qr-img']+"'>";
+  regCell.style.backgroundColor = "green";
+}else{
+    regCell.textContent = "NO Registrado en Evento";
+    regCell.style.backgroundColor = "lightblue";
+}
+ 
+  if (doc.data().invitado){
+  invCell.textContent = doc.data().invitado;
+  }else{
+    invCell.textContent = "Sin invitado"
+  }
+  // Agregar las celdas a la fila y la fila al tbody
+  row.appendChild(nameCell);
+  row.appendChild(name_Cell);
+  row.appendChild(mailCell);
+  row.appendChild(invCell);
+  row.appendChild(qrCell);
+  row.appendChild(cqrCell);
+  row.appendChild(regCell);
+  row.appendChild(aproCell);
+  row.appendChild(fechaCell);
+  tbody.appendChild(row);
+}
+
+      // Agregar un listener para actualizar la tabla en tiempo real
+      onSnapshot(datosRef, docsSnap => {
+        tbody.innerHTML = "";
+  docsSnap.forEach(doc => {
+    console.log(doc.data());
+    agregarFila(doc);
+  })
+});
+    </script>
+  
+</head>
+<body>
+  <h1>Visualizador Registros QR en tiempo real</h1>
+  <table id="table">
+    <thead>
+      <tr>
+        <th>Nombre del registro QR</th>
+        <th>Nombre comprador/anfitrión</th>
+        <th>Mail usuario comprador/anfitrión</th>
+        <th>Invitado</th>
+        <th>Nombre QR</th>
+        <th>Código QR</th>
+        <th>Se registra en Evento</th>
+        <th>APROBADO</th>
+        <th>Fecha creación</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      border: 2px solid #444444;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px;
+      border: 1px solid #444444;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    tr:hover {
+  background-color: #969595;
+  cursor: pointer;
+}
+    
+  </style>
+</body>
+</html>
+
+  
